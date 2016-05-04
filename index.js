@@ -3,6 +3,7 @@ var compilePug = require('./lib/compile-pug'),
     localization     = require('./lib/localization'),
     compileSass     = require('./lib/compile-sass'),
     juiceStyles     = require('./lib/juice-styles'),
+    renderHtml     = require('./lib/render-html'),
     writeFile     = require('./lib/write-file'),
     filePath     = require('./lib/file-path'),
     path = require('path'),
@@ -10,7 +11,7 @@ var compilePug = require('./lib/compile-pug'),
 
 var Controller = {
   __defaults__: {
-    pipeline: ['compilePug', 'compileSass', 'juiceStyles', 'writeFile'],
+    pipeline: ['compilePug', 'compileSass', 'juiceStyles', 'writeHtml', 'renderHtml'],
     locales: ['en'],
     basePath : path.join(__dirname, 'example'),
   },
@@ -21,7 +22,7 @@ var Controller = {
     if( Array.isArray(pipeArray) ) {
       this.__defaults__.pipeline = pipeArray;
     } else {
-      throw new Error(this.errors.pipelineArray)
+      throw new Error(errors.pipelineArray)
     }
   },
   compile: function() {
@@ -38,4 +39,4 @@ var Controller = {
   }
 }
 
-module.exports = extend(Controller, localization, compilePug, compileSass, juiceStyles, writeFile, filePath, errors);
+module.exports = extend(Controller, localization, compilePug, compileSass, juiceStyles, writeFile, renderHtml, filePath);
