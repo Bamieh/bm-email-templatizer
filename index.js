@@ -3,19 +3,19 @@ var compilePug = require('./lib/compile-pug'),
     localization     = require('./lib/localization'),
     compileSass     = require('./lib/compile-sass'),
     juiceStyles     = require('./lib/juice-styles'),
+    writeFile     = require('./lib/write-file'),
     filePath     = require('./lib/file-path'),
     path = require('path'),
     extend     = require('./lib/extend-mixin').extend;
 
 var Controller = {
   __defaults__: {
-    pipeline: ['compilePug', 'compileSass', 'juiceStyles'],
+    pipeline: ['compilePug', 'compileSass', 'juiceStyles', 'writeFile'],
     locales: ['en'],
-    basePath : path.join(__dirname),
-    filePath: 'example'
+    basePath : path.join(__dirname, 'example'),
   },
   get pipeline() {
-    return this.__defaults__.pipeline
+    return this.__defaults__.pipeline;
   },
   set pipeline(pipeArray) {
     if( Array.isArray(pipeArray) ) {
@@ -38,4 +38,4 @@ var Controller = {
   }
 }
 
-module.exports = extend(Controller, localization, compilePug, compileSass, juiceStyles, filePath, errors);
+module.exports = extend(Controller, localization, compilePug, compileSass, juiceStyles, writeFile, filePath, errors);
