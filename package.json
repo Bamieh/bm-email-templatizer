@@ -1,5 +1,5 @@
 {
-  "name": "bm-email-templates",
+  "name": "bm-email-templatizer",
   "version": "1.0.0",
   "description": "create email templates through jade/pug, sass, and locale json files",
   "main": "lib/index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Bamieh/bm-email-templates.git"
+    "url": "git+https://github.com/Bamieh/bm-email-templatizer.git"
   },
   "keywords": [
     "email",
@@ -23,9 +23,9 @@
   "author": "Ahmad Bamieh",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Bamieh/bm-email-templates/issues"
+    "url": "https://github.com/Bamieh/bm-email-templatizer/issues"
   },
-  "homepage": "https://github.com/Bamieh/bm-email-templates#readme",
+  "homepage": "https://github.com/Bamieh/bm-email-templatizer#readme",
   "dependencies": {
     "juice": "^1.10.0",
     "node-sass": "^3.7.0",
