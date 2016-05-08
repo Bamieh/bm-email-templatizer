@@ -2,7 +2,7 @@
   "name": "bm-email-templates",
   "version": "1.0.0",
   "description": "create email templates through jade/pug, sass, and locale json files",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
