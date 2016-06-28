@@ -1,12 +1,14 @@
-var bmTemplatizer = require('../lib'),
-  path = require('path');
+var bmEmailTemplatizer = require('../lib');
 
-bmTemplatizer.options = {
+var options = {
   paths: {
     'base': __dirname
   }
 };
 
-bmTemplatizer.compile().then(function(results) {
-  console.log('res', results)
-});
+bmEmailTemplatizer
+  .setOptions(options)
+  .allLocalesAllFiles()
+  .then(function(results) {
+    console.log('res', results);
+  });
