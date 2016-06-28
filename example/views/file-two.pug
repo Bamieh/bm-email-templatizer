@@ -1,5 +1,7 @@
 html
   body
     div
+      | #{ _r("{{#if user_name}}") }
       input.fname(type="text", name="fullname", placeholder=firstName)
+      | #{ _r("{{/if}}") }
 

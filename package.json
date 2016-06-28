@@ -1,6 +1,6 @@
 {
   "name": "bm-email-templatizer",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "create email templates through jade/pug, sass, and locale json files",
   "main": "lib/index.js",
   "scripts": {
@@ -22,12 +22,14 @@
   ],
   "author": "Ahmad Bamieh",
   "license": "MIT",
+  "tonicExampleFilename": "example/app.js",
   "bugs": {
     "url": "https://github.com/Bamieh/bm-email-templatizer/issues"
   },
   "homepage": "https://github.com/Bamieh/bm-email-templatizer#readme",
   "dependencies": {
     "juice": "^1.10.0",
+    "mkdirp": "^0.5.1",
     "node-sass": "^3.7.0",
     "pug": "^2.0.0-alpha6"
   }
