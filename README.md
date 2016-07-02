@@ -35,7 +35,6 @@ var defaulOptions = {
 ```
 
 
-
 ##Options List
 
 | Option   |   Type   |                                Description |
@@ -44,13 +43,38 @@ var defaulOptions = {
 | paths    | {Object} | See Paths section for more info.           |
 
 
-### File Paths
+### Paths
+`paths` object passed to the settings.
 
-| PathName |    Default      |                Description  |
-| -------- | :-------------: | --------------------------: |
-| base     | *process.cwd()* | Directory node is run from. |
-| scss     | *"scss"*        |                             |
-| views    | *"views"*       |                             |
-| compiled | *"compiled"*    |                             |
-| locales  | *"locales"*     |                             |
+####base
+Default: `process.cwd()`
+
+base path of project.
+By default it is the current working directory, the directory path node is called from.
+
+####scss
+Default: `scss/index.scss`
+Entrance point for scss file. Currently accepts only one entrance point.
+
+####views
+Default: `views/**/*.pug`
+
+views glob pattern relative to root.
+
+####locales
+Default: `locales/**/*.json`
+
+locales glob pattern relative to root.
+*Locale file name will be supplied as a directory name to the writeHTML pipeline command*
+
+####compiled
+Default: `compiled`
+
+Accepts a string for a folder name relative to the base path.
+Used by `writeHtml` in the pipeline to write the compiled files into directory.
+`{base}/{compiled}/{locale}/{fileName}.html
+
+| Future: accepts an object, with absolute boolean, ext name, and folder path.
+
+
 
