@@ -23,6 +23,16 @@ describe('localization', function() {
       };
     });
 
+    it('should take context from `this`', function() {
+      var readFile = localization.readLocaleFile.call(context)
+      return expect(readFile).to.eventually.deep.equal(jsonLocale);
+    });
+
+    it('should take context from function parameters', function() {
+      var readFile = localization.readLocaleFile(context);
+      return expect(readFile).to.eventually.be.an('object');
+    });
+
     it('should return a promise', function() {
       var readFile = localization.readLocaleFile.call(context)
       return expect(readFile).to.be.instanceof(Promise);
@@ -44,15 +54,6 @@ describe('localization', function() {
         });
     });
 
-    it('should take context from `this`', function() {
-      var readFile = localization.readLocaleFile.call(context)
-      return expect(readFile).to.eventually.deep.equal(jsonLocale);
-    });
-
-    it('should take context from funciton parameters', function() {
-      var readFile = localization.readLocaleFile(context);
-      return expect(readFile).to.eventually.be.an('object');
-    });
 
   });
 });

@@ -1,48 +1,56 @@
 #bm-email-templates
 
+##Usage
 
+###Minimal
+```javascript
+var bmEmailTemplatizer = require('bm-email-templatizer');
 
+bmEmailTemplatizer
+  .allLocalesAllFiles()
+  .then(function(results) {
+    console.log('res', results);
+  })
+  .catch(function(err) {
+    console.log('error', err);
+  });
+```
 
-
-
+###
 
 #Options
 
-
-
 ```javascript
-var myOptions = {
-  path: {
-    'base': __dirname,
-    'views': 'views'
+var defaulOptions = {
+  pipeline: ['compilePug', 'compileSass', 'juiceStyles', 'writeHtml'],
+  paths: {
+    base: process.cwd(),
+    scss: 'scss',
+    locales: 'locales',
+    views: 'views',
+    compiled: 'compiled'
   }
 }
 
-// setting options via options setter
-bmTemplatizer.options = myOptions;
-// passing options to compile methods
-bmTemplatizer.compile(myOptions).then(/*...
 ```
 
 
 
 ##Options List
 
-| Option   |   Type   |     Default |                     Description |
-| -------- | :------: | ----------: | ------------------------------: |
-| basePath | {String} | System Root |               Project base path |
-| locales  | centered |             |                                 |
-| paths    | {Object} |           - | See Paths section for more info |
+| Option   |   Type   |                                Description |
+| -------- | :------: | -----------------------------------------: |
+| pipeline | [Array]  | list of functions to be run by templatizer |
+| paths    | {Object} | See Paths section for more info.           |
 
 
+### File Paths
 
-## File Paths
-
-| PathName |    Default    | Description |
-| -------- | :-----------: | ----------: |
-| base     | *System Root* | System Root |
-| scss     |   *"scss"*    |             |
-| views    |   *"views"*   |             |
-| dest     |   *"dest"*    |             |
-| locales  |  *"locales"*  |             |
+| PathName |    Default      |                Description  |
+| -------- | :-------------: | --------------------------: |
+| base     | *process.cwd()* | Directory node is run from. |
+| scss     | *"scss"*        |                             |
+| views    | *"views"*       |                             |
+| compiled | *"compiled"*    |                             |
+| locales  | *"locales"*     |                             |
 
