@@ -1,6 +1,6 @@
 {
   "name": "bm-email-templatizer",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "create email templates through jade/pug, sass, and locale json files",
   "main": "lib/index.js",
   "scripts": {
@@ -38,6 +38,8 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-as-promised": "^5.3.0",
+    "glob": "^7.0.5",
+    "glob-fs": "^0.1.6",
     "istanbul": "^0.4.4"
   }
 }

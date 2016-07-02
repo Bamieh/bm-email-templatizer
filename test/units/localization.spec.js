@@ -8,40 +8,34 @@ chai.use(chaiAsPromised);
 
 describe('localization', function() {
   describe('ReadLocaleFile', function() {
-    var settings, missingFileSettings;
+    var context, missingFileContext;
     var jsonLocale = require('../sample/i18n-locales/en.json');
 
-    before(function() {
-      var paths = {
-        'base': path.join(__dirname, '..', 'sample'),
-        'locales': 'i18n-locales'
-      };
-
-      settings = {
-        'paths': paths,
+    before('setup', function() {
+      context = {
+        'paths': global.MochaSetup.paths,
         'activeLocale': 'en.json'
       };
 
-      missingFileSettings = {
-        'paths': paths,
+      missingFileContext = {
+        'paths': global.MochaSetup.paths,
         'activeLocale': 'missing.json'
       };
-
     });
 
     it('should return a promise', function() {
-      var readFile = localization.readLocaleFile.call(settings)
+      var readFile = localization.readLocaleFile.call(context)
       return expect(readFile).to.be.instanceof(Promise);
     });
 
     it('Promise resolves json content', function() {
-      var readFile = localization.readLocaleFile(settings)
+      var readFile = localization.readLocaleFile(context)
       // return expect(readFile).to.be.an('object');
       return expect(readFile).to.eventually.be.an('object');
     });
 
     it('catch error on file missing', function() {
-      var readFile = localization.readLocaleFile(missingFileSettings)
+      var readFile = localization.readLocaleFile(missingFileContext)
       return expect(readFile).to.be.rejected
         .then(function(error) {
             expect(error).to.be.an('error');
@@ -50,13 +44,13 @@ describe('localization', function() {
         });
     });
 
-    it('should take settings from `this`', function() {
-      var readFile = localization.readLocaleFile.call(settings)
+    it('should take context from `this`', function() {
+      var readFile = localization.readLocaleFile.call(context)
       return expect(readFile).to.eventually.deep.equal(jsonLocale);
     });
 
-    it('should take settings from funciton parameters', function() {
-      var readFile = localization.readLocaleFile(settings);
+    it('should take context from funciton parameters', function() {
+      var readFile = localization.readLocaleFile(context);
       return expect(readFile).to.eventually.be.an('object');
     });
 
