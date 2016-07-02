@@ -1,4 +1,7 @@
-#bm-email-templates
+#bmEmailTemplatizer
+Fully working email templatizer.
+- compile multiple emails templates with multiple locales.
+- fully customizable pipeline.
 
 ##Usage
 
@@ -16,58 +19,50 @@ bmEmailTemplatizer
   });
 ```
 
-###
-
 #Options
+
+| Option   |   Type   |                                Description |
+| -------- | :------: | -----------------------------------------: |
+| pipeline | Array    | list of functions to be run by templatizer |
+| paths    | Object   | See Paths section for more info.           |
 
 ```javascript
 var defaulOptions = {
   pipeline: ['compilePug', 'compileSass', 'juiceStyles', 'writeHtml'],
   paths: {
     base: process.cwd(),
-    scss: 'scss',
-    locales: 'locales',
-    views: 'views',
+    scss: 'scss/index.scss',
+    locales: 'locales/**/*.json',
+    views: 'views/**/*.pug',
     compiled: 'compiled'
   }
 }
-
 ```
 
-
-##Options List
-
-| Option   |   Type   |                                Description |
-| -------- | :------: | -----------------------------------------: |
-| pipeline | [Array]  | list of functions to be run by templatizer |
-| paths    | {Object} | See Paths section for more info.           |
-
-
-### Paths
-`paths` object passed to the settings.
-
-####base
+## Paths
+###base
 Default: `process.cwd()`
 
 base path of project.
 By default it is the current working directory, the directory path node is called from.
 
-####scss
+###scss
 Default: `scss/index.scss`
+
 Entrance point for scss file. Currently accepts only one entrance point.
 
-####views
+###views
 Default: `views/**/*.pug`
 
 views glob pattern relative to root.
 
-####locales
+###locales
 Default: `locales/**/*.json`
 
 locales glob pattern relative to root.
 *Locale file name will be supplied as a directory name to the writeHTML pipeline command*
 
-####compiled
+###compiled
 Default: `compiled`
 
 Accepts a string for a folder name relative to the base path.
