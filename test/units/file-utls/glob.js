@@ -7,7 +7,7 @@ var path = require('path'),
 
 chai.use(chaiAsPromised);
 
-describe('fileUtls::glob', function() {
+describe('glob', function() {
   var context;
   before('setup', function() {
     context = {
@@ -25,9 +25,15 @@ describe('fileUtls::glob', function() {
     return expect(readFile).to.eventually.be.an('array');
   });
   
-  it.skip('resolves only files matching glob Pattern', function() {
+  it.skip('catch errors', function() {});
 
-  });
+  it.skip('takes single file', function() {});
+
+  it.skip('takes an array of files', function() {});
+
+  it.skip('takes an array of glob patterns', function() {});
+
+  it.skip('resolves only files matching glob Pattern', function() {});
   
   it('takes context from `this`', function() {
     var readFile = glob.call(context, 'views');
@@ -39,7 +45,4 @@ describe('fileUtls::glob', function() {
     return expect(readFile).to.eventually.be.an('array');
   });
   
-  it.skip('catch errors', function() {
-
-  });
 });

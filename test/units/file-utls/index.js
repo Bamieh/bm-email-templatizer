@@ -1,2 +1,4 @@
-require("./glob.js");
-require("./readActiveLocale.js");
+describe('fileUtls', function() {
+  require("./glob.js");
+  require("./readActiveLocale.js");
+})

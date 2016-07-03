@@ -8,7 +8,7 @@ var path = require('path'),
 
 chai.use(chaiAsPromised);
 
-describe('fileUtls::readActiveLocale', function() {
+describe('readActiveLocale', function() {
   var context,
     missingFileContext,
     undefinedActiveLocaleContext;
@@ -53,11 +53,16 @@ describe('fileUtls::readActiveLocale', function() {
       });
   });
 
-  it('resolves json content', function() {
+  it('resolves into an object', function() {
     var readFile = readActiveLocale(context)
     // return expect(readFile).to.be.an('object');
     return expect(readFile).to.eventually.be.an('object');
   });
+
+  it.skip('resolves an object containing json locale file', function() {});
+  it.skip('accepts custom functions', function() {});
+  it.skip('passes custom functions into resolved object', function() {});
+
 
   it('takes context from `this`', function() {
     var readFile = readActiveLocale.call(context)
