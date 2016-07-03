@@ -3,8 +3,7 @@ var path = require('path'),
   readActiveLocale = fileUtls.readActiveLocale,
   chai = require('chai'),
   chaiAsPromised = require('chai-as-promised'),
-  expect = chai.expect,
-  jsonLocale = require('../../sample/i18n-locales/en.json');
+  expect = chai.expect;
 
 chai.use(chaiAsPromised);
 
@@ -16,7 +15,7 @@ describe('readActiveLocale', function() {
   before('setup', function() {
     context = {
       'paths': global.MochaSetup.paths,
-      'activeLocale': 'en.json'
+      'activeLocale': 'i18n-locales/en.json'
     };
 
     missingFileContext = {
@@ -65,8 +64,8 @@ describe('readActiveLocale', function() {
 
 
   it('takes context from `this`', function() {
-    var readFile = readActiveLocale.call(context)
-    return expect(readFile).to.eventually.deep.equal(jsonLocale);
+    var readFile = readActiveLocale.call(context);
+    return expect(readFile).to.eventually.have.property("testString", "English Text");
   });
 
   it('takes context from function parameters', function() {

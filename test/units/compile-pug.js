@@ -15,16 +15,16 @@ describe('compile-pug', function() {
     context = {
       paths: global.MochaSetup.paths,
       activeFile: 'views/basic.pug',
-      activeLocale: 'en.json'
+      activeLocale: 'i18n-locales/en.json'
     }
     missingContext = {
       paths: global.MochaSetup.paths,
       activeFile: 'missing.pug',
-      activeLocale: 'en.json'
+      activeLocale: 'i18n-locales/en.json'
     }
     undefinedActiveFileContext = {
       paths: global.MochaSetup.paths,
-      activeLocale: 'en.json'
+      activeLocale: 'i18n-locales/en.json'
     }
   });
 
