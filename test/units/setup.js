@@ -4,7 +4,6 @@ var path = require('path'),
   expect = chai.expect;
 chai.use(chaiAsPromised);
 
-
 before(function() {
   console.log('Starting');
   global.MochaSetup = {};
