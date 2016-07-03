@@ -13,9 +13,11 @@ describe('readActiveLocale', function() {
     undefinedActiveLocaleContext;
 
   before('setup', function() {
+    var base = global.MochaSetup.paths.base;
+    
     context = {
       'paths': global.MochaSetup.paths,
-      'activeLocale': 'i18n-locales/en.json'
+      'activeLocale': path.join(base, 'i18n-locales', 'en.json')
     };
 
     missingFileContext = {
@@ -47,8 +49,7 @@ describe('readActiveLocale', function() {
     return expect(readFile).to.be.rejected
       .then(function(error) {
           expect(error).to.be.an('error');
-          expect(error).to.have.property('code', 'EISDIR');
-          expect(error).to.have.property('errno', -21);
+          expect(error).to.have.property('message', 'activeLocale undefined');
       });
   });
 

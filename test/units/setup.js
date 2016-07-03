@@ -8,7 +8,7 @@ before(function() {
   console.log('Starting');
   global.MochaSetup = {};
   global.MochaSetup.paths = {
-    'base': path.join(process.cwd(), 'test', 'sample'),
+    'base': path.join(__dirname, '..', 'sample'),
     'locales': 'i18n-locales',
     'views': 'views/**/*.pug'
   }

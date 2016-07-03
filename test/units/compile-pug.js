@@ -12,19 +12,24 @@ describe('compile-pug', function() {
       undefinedActiveFileContext;
 
   before('setup', function() {
+    var base = global.MochaSetup.paths.base;
+    var activeLocale = path.join(base, 'i18n-locales', 'en.json');
+    var activeFile = path.join(base, 'views', 'basic.pug');
+
+
     context = {
       paths: global.MochaSetup.paths,
-      activeFile: 'views/basic.pug',
-      activeLocale: 'i18n-locales/en.json'
+      activeFile: activeFile,
+      activeLocale: activeLocale
     }
     missingContext = {
       paths: global.MochaSetup.paths,
       activeFile: 'missing.pug',
-      activeLocale: 'i18n-locales/en.json'
+      activeLocale: activeLocale
     }
     undefinedActiveFileContext = {
       paths: global.MochaSetup.paths,
-      activeLocale: 'i18n-locales/en.json'
+      activeLocale: activeLocale
     }
   });
 
@@ -52,12 +57,7 @@ describe('compile-pug', function() {
   it('catch errors on undefined activeFile', function() {
     var compiled = compilePug.call(undefinedActiveFileContext);
 
-    return expect(compiled).to.be.rejected
-      .then(function(error) {
-          expect(error).to.be.an('error');
-          expect(error).to.have.property('code', 'EISDIR');
-          expect(error).to.have.property('errno', -21);
-      });
+    return expect(compiled).to.be.rejected.and.to.eventually.be.an('error');
   });
 
   it('resolves into object with `html` property', function() {
