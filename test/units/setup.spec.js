@@ -1,5 +1,4 @@
 var path = require('path'),
-  scanDir = require('../../lib/scan-dir'),
   chai = require('chai'),
   chaiAsPromised = require('chai-as-promised'),
   expect = chai.expect;
