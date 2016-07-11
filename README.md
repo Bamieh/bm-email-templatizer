@@ -181,5 +181,24 @@ Used by `writeHtml` in the pipeline to write the compiled files into directory.
 
 | Future: accepts an object, with absolute boolean, ext name, and folder path.
 
+##Scss
+To get the active locale in the scss files, use getActiveLocale();
+
+example:
+```sass
+// index.scss
+$language: getActiveLocale();
+$direction: if($language == 'ar', rtl, ltr);
+
+html {
+  direction: $direction;
+}
+
+@if $language == 'du' {
+  .test-class {
+    color: blue;
+  }
+}
+```
 
 

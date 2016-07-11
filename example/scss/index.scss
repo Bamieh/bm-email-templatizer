@@ -1,3 +1,7 @@
+$language: getActiveLocale();
+$direction: if($language == 'ar', rtl, ltr);
+
 .ahmad {
+  direction: $direction;
 	text-align: start;
 }
