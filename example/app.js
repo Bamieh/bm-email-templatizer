@@ -1,6 +1,9 @@
 var bmEmailTemplatizer = require('../lib'),
     path = require('path');
 
+function sendToMandrill() {
+
+}
 
 var options = {
   paths: {
@@ -11,7 +14,13 @@ var options = {
       _raw: function(variableName) {
         return String.raw`${variableName}`;
       }
+    },
+    options: {
+      pretty: true
     }
+  },
+  i18nConfigs: {
+    objectNotation: true
   }
 };
 
