@@ -46,12 +46,12 @@ bmEmailTemplatizer
 
 #Options
 
-| Option       |   Type   |                                Description |
-| ------------ | :------: | -----------------------------------------: |
-| pipeline     | Array    | list of functions to be run by templatizer |
-| paths        | Object   | See Paths section.                         |
-| locales      | Array    | array of locales                           |
-| consolidate  | Object   | See Consolidate section.                   |
+| Option              |   Type   |                                Description   |
+| ------------------- | :------: | -------------------------------------------: |
+| pipeline            | Array    | list of functions to be run by templatizer.  |
+| paths               | Object   | See Paths section.                           |
+| consolidate         | Object   | See Consolidate section.                     |
+| i18nConfigurations  | Object   | See i18n configurations section.             |
 
 ```javascript
 var defaulOptions = {
@@ -181,6 +181,7 @@ Used by `writeHtml` in the pipeline to write the compiled files into directory.
 
 | Future: accepts an object, with absolute boolean, ext name, and folder path.
 
+
 ##Scss
 To get the active locale in the scss files, use getActiveLocale();
 
@@ -200,5 +201,9 @@ html {
   }
 }
 ```
+##i18n config
+config options passed to node-i18n, [check here](https://github.com/mashpie/i18n-node#i18nconfigure)
 
+if `i18nConfig.locales` is not passed, they are predicted based on json files in the `paths.locales` directory.
 
+`i18nConfig.directory` and `i18nConfig.register` properties are ignored.

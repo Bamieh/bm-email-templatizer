@@ -1,6 +1,6 @@
 {
   "name": "bm-email-templatizer",
-  "version": "1.7.8",
+  "version": "1.7.9",
   "description": "create email templates through jade/pug, sass, and locale json files",
   "main": "lib/index.js",
   "scripts": {
