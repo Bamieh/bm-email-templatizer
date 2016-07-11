@@ -4,10 +4,16 @@ var bmEmailTemplatizer = require('../lib'),
 
 var options = {
   paths: {
-    base     : path.join(process.cwd(), 'example')
+    base: path.join(process.cwd(), 'example')
+  },
+  consolidate: {
+    locals: {
+      _raw: function(variableName) {
+        return String.raw`${variableName}`;
+      }
+    }
   }
 };
-console.log('base path: ', path.join(process.cwd(), 'example'))
 
 bmEmailTemplatizer.
   setOptions(options)
