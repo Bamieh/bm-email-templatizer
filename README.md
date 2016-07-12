@@ -7,6 +7,19 @@ An email template engine that truely works.
 - consolidate.js for view engine.
 
 ##Usage
+###Minimal
+```javascript
+var bmEmailTemplatizer = require('bm-email-templatizer');
+
+bmEmailTemplatizer
+  .allLocalesAllFiles()
+  .then(function(results) {
+    console.log('results', results);
+  })
+  .catch(function(err) {
+    console.log('error', err);
+  });
+```
 
 ##API
 ###setOptions
@@ -30,19 +43,6 @@ An email template engine that truely works.
   returns: Promise.
   resolves: pipeline resolves.
 
-###Minimal
-```javascript
-var bmEmailTemplatizer = require('bm-email-templatizer');
-
-bmEmailTemplatizer
-  .allLocalesAllFiles()
-  .then(function(results) {
-    console.log('res', results);
-  })
-  .catch(function(err) {
-    console.log('error', err);
-  });
-```
 
 #Options
 
