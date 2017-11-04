@@ -32,17 +32,17 @@
   },
   "homepage": "https://github.com/Bamieh/bm-email-templatizer#readme",
   "dependencies": {
-    "consolidate": "^0.14.1",
+    "consolidate": "^0.15.0",
     "glob": "^7.0.5",
     "i18n": "^0.8.3",
-    "juice": "^1.10.0",
+    "juice": "^4.2.2",
     "mkdirp": "^0.5.1",
-    "node-sass": "^3.7.0",
+    "node-sass": "^4.6.0",
     "pug": "^2.0.0-alpha6"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "chai-as-promised": "^5.3.0",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
     "istanbul": "^0.4.4"
   }
 }
