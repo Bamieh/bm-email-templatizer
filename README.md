@@ -1,4 +1,6 @@
 #bmEmailTemplatizer
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/Bamieh/bm-email-templatizer.svg)](https://greenkeeper.io/)
 An email template engine that truely works.
 
 - compile multiple emails templates with multiple locales.
